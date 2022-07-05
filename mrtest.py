@@ -8,7 +8,6 @@ from streamlit_webrtc import VideoTransformerBase, webrtc_streamer
 detector = h.handDetector(maxHands = 1, detectionCon = 0.75)
 
 st.title("Webcam shit beach")
-run = st.checkbox('Run')
 
 placeholder = st.empty()
 
