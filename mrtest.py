@@ -11,13 +11,6 @@ detector = h.handDetector(maxHands = 1, detectionCon = 0.75)
 RTC_CONFIGURATION = RTCConfiguration(
     {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
 )
-webrtc_ctx = webrtc_streamer(
-    key="TEST",
-    mode=WebRtcMode.SENDRECV,
-    rtc_configuration=RTC_CONFIGURATION,
-    media_stream_constraints={"video": True, "audio": False},
-    async_processing=True,
-)
 
 st.title("Webcam shit beach")
 
@@ -85,4 +78,11 @@ class VideoProcessor:
                 pass
         return av.VideoFrame.from_ndarray(img, format="bgr24")
     
-webrtc_streamer(key="example", video_frame_callback=video_frame_callback)
+webrtc_ctx = webrtc_streamer(
+    key="WYH",
+    mode=WebRtcMode.SENDRECV,
+    rtc_configuration=RTC_CONFIGURATION,
+    media_stream_constraints={"video": True, "audio": False},
+    video_processor_factory=VideoProcessor,
+    async_processing=True,
+)
