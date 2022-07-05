@@ -9,8 +9,6 @@ detector = h.handDetector(maxHands = 1, detectionCon = 0.75)
 
 st.title("Webcam shit beach")
 run = st.checkbox('Run')
-FRAME_WINDOW = st.image([])
-cam = cv2.VideoCapture(0)
 
 placeholder = st.empty()
 
