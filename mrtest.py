@@ -2,7 +2,6 @@ import cv2
 import streamlit as st
 import mediapipe as mp
 import Hand_track as h
-import os
 from PIL import Image
 
 detector = h.handDetector(maxHands = 1, detectionCon = 0.75)
@@ -28,7 +27,6 @@ while run:
     y = []
 
     if len(lmLis) != 0:
-        print('yaas queen')
             
         
         for id, xa, ya in lmLis:
