@@ -1,4 +1,5 @@
 mediapipe==0.8.9.1
-opencv-python==4.5.5.64
+opencv-contrib-python-headless
 Pillow==9.0.1
+streamlit_webrtc==0.20.0
 streamlit==1.10.0
