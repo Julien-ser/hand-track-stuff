@@ -13,11 +13,10 @@ RTC_CONFIGURATION = RTCConfiguration(
 )
 
 st.title("Webcam shit beach")
-text = ''
 
 class VideoProcessor:
-    global text
     def recv(self, frame):
+        text = ''
         img = frame.to_ndarray(format="bgr24")
         # img = process(img)
     
@@ -52,20 +51,18 @@ class VideoProcessor:
                 if lmLis[8][2] > lmLis[6][2] and lmLis[16][2] > lmLis[14][2] and lmLis[20][2] > lmLis[18][2] and lmLis[10][2] > lmLis[12][2]:
                     text = 'Middle Finger'
                     
-                elif lmLis[8][2] < lmLis[6][2] and lmLis[16][2] > lmLis[14][2] and lmLis[20][2] > lmLis[18][2] and lmLis[10][2] > lmLis[12][2]:
+                if lmLis[8][2] < lmLis[6][2] and lmLis[16][2] > lmLis[14][2] and lmLis[20][2] > lmLis[18][2] and lmLis[10][2] > lmLis[12][2]:
                     text =  'Peace'
 
-                elif lmLis[8][2] > lmLis[6][2] and lmLis[16][2] > lmLis[14][2] and lmLis[20][2] > lmLis[18][2] and lmLis[10][2] < lmLis[12][2]:
+                if lmLis[8][2] > lmLis[6][2] and lmLis[16][2] > lmLis[14][2] and lmLis[20][2] > lmLis[18][2] and lmLis[10][2] < lmLis[12][2]:
                     if lmLis[4][2] < lmLis[6][2]:
                         text = 'Thumbs up'
                     else:
                         text = 'Fist'
 
-                elif lmLis[8][2] < lmLis[6][2] and lmLis[16][2] < lmLis[14][2] and lmLis[20][2] < lmLis[18][2] and lmLis[10][2] > lmLis[12][2]:
+                if lmLis[8][2] < lmLis[6][2] and lmLis[16][2] < lmLis[14][2] and lmLis[20][2] < lmLis[18][2] and lmLis[10][2] > lmLis[12][2]:
                     if abs(abs(lmLis[12][1] - lmLis[16][1])/(abs(lmLis[12][1] - lmLis[8][1])) + 1) >= 3 and abs(abs(lmLis[12][1] - lmLis[16][1])/(abs(lmLis[20][1] - lmLis[16][1]) + 1)) >= 3:
                         text = 'Vulcans'
-                else:
-                    text = ''
             except:
                 pass
         cv2.putText(img, text, (200, 200), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
