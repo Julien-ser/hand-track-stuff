@@ -14,8 +14,6 @@ RTC_CONFIGURATION = RTCConfiguration(
 
 st.title("Webcam shit beach")
 
-placeholder = st.empty()
-
 class VideoProcessor:
     global placeholder
     def recv(self, frame):
@@ -51,29 +49,20 @@ class VideoProcessor:
 
             try:
                 if lmLis[8][2] > lmLis[6][2] and lmLis[16][2] > lmLis[14][2] and lmLis[20][2] > lmLis[18][2] and lmLis[10][2] > lmLis[12][2]:
-                    #cv2.putText(img, 'Fuck you', (0, 0), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
-                    placeholder.empty()
-                    placeholder.text('Middle finger 🖕')
-
+                    cv2.putText(img, 'Middle Finger', (200, 200), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
+                    
                 if lmLis[8][2] < lmLis[6][2] and lmLis[16][2] > lmLis[14][2] and lmLis[20][2] > lmLis[18][2] and lmLis[10][2] > lmLis[12][2]:
-                    #cv2.putText(img, 'Peace', (0, 0), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
-                    placeholder.empty()
-                    placeholder.text('Peace ✌')
+                    cv2.putText(img, 'Peace', (200, 200), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
 
                 if lmLis[8][2] > lmLis[6][2] and lmLis[16][2] > lmLis[14][2] and lmLis[20][2] > lmLis[18][2] and lmLis[10][2] < lmLis[12][2]:
                     if lmLis[4][2] < lmLis[6][2]:
-                        #cv2.putText(img, 'Thumbs up', (0, 0), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
-                        placeholder.empty()
-                        placeholder.text('Thumbs Up 👍')
+                        cv2.putText(img, 'Thumbs up', (200, 200), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
                     else:
-                        #cv2.putText(img, 'Fist', (0, 0), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
-                        placeholder.empty()
-                        placeholder.text('Fist 👊')
+                        cv2.putText(img, 'Fist', (200, 200), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
 
                 if lmLis[8][2] < lmLis[6][2] and lmLis[16][2] < lmLis[14][2] and lmLis[20][2] < lmLis[18][2] and lmLis[10][2] > lmLis[12][2]:
                     if abs(abs(lmLis[12][1] - lmLis[16][1])/(abs(lmLis[12][1] - lmLis[8][1])) + 1) >= 3 and abs(abs(lmLis[12][1] - lmLis[16][1])/(abs(lmLis[20][1] - lmLis[16][1]) + 1)) >= 3:
-                        #cv2.putText(img, 'Vulcans', (0, 0), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
-                        placeholder.text('Vulcan salute 🖖')
+                        cv2.putText(img, 'Vulcans', (200, 200), cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 255), 3)
             except:
                 pass
         return av.VideoFrame.from_ndarray(img, format="bgr24")
